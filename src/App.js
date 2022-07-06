@@ -7,9 +7,11 @@ import General from './components/General';
 import Education from './components/Education';
 import Experience from './components/Experience';
 import Footer from './components/Footer';
+import Preview from './components/Preview';
 
 function App() {
 
+  const [preview, setPreview] = useState(false);
   const [editingEducation, setEditingEducation] = useState(false);
   const [editingExperience, setEditingExperience] = useState(false);
   const [nameContent, setNameContent] = useState('');
@@ -90,11 +92,14 @@ function App() {
         {educations.map((education) => {
           return <Education key={education.id} id={education.id} schoolName={education.schoolName} major={education.major} studyDate={education.studyDate} removeEducation={removeEducation} editEducation={editEducation}/>
         })}
-        <ExperienceForm removeExperience={removeExperience} editExperience={editExperience} editingExperience={editingExperience} saveExperience={saveExperience} companyName={companyName} setCompanyName={setCompanyName} posTitle={posTitle} setPosTitle={setPosTitle} description={description} setDescription={setDescription} startDate={startDate} setStartDate={setStartDate} endDate={endDate} setEndDate={setEndDate} addExperience={addExperience} />
+        <ExperienceForm preview='false' removeExperience={removeExperience} editExperience={editExperience} editingExperience={editingExperience} saveExperience={saveExperience} companyName={companyName} setCompanyName={setCompanyName} posTitle={posTitle} setPosTitle={setPosTitle} description={description} setDescription={setDescription} startDate={startDate} setStartDate={setStartDate} endDate={endDate} setEndDate={setEndDate} addExperience={addExperience} />
         {experiences.map((experience) => {
-          return <Experience key={experience.id} id={experience.id} companyName={experience.companyName} posTitle={experience.posTitle} description={experience.description} startDate={experience.startDate} endDate={experience.endDate} removeExperience={removeExperience} editExperience={editExperience}/>
+          return <Experience preview='false' key={experience.id} id={experience.id} companyName={experience.companyName} posTitle={experience.posTitle} description={experience.description} startDate={experience.startDate} endDate={experience.endDate} removeExperience={removeExperience} editExperience={editExperience}/>
         })}
+        {!preview && <button onClick={() => setPreview(true)} type='button'>Show preview</button>}
+        {preview && <button onClick={() => setPreview(false)} type='button'>Hide preview</button>}
       </form>
+      {preview && <Preview nameContent={nameContent} emailContent={emailContent} phoneContent={phoneContent} educations={educations} experiences={experiences} />}
       <Footer />
     </div>
   );
