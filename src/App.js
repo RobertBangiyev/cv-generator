@@ -3,15 +3,17 @@ import Header from './components/Header';
 import { useState } from 'react';
 import EducationForm from './components/EducationForm';
 import ExperienceForm from './components/ExperienceForm';
-import General from './components/General';
+import GeneralForm from './components/GeneralForm';
 import Education from './components/Education';
 import Experience from './components/Experience';
 import Footer from './components/Footer';
 import Preview from './components/Preview';
+import General from './components/General';
 
 function App() {
 
   const [preview, setPreview] = useState(false);
+  const [editingGeneral, setEditingGeneral] = useState(true);
   const [editingEducation, setEditingEducation] = useState(false);
   const [editingExperience, setEditingExperience] = useState(false);
   const [nameContent, setNameContent] = useState('');
@@ -82,12 +84,20 @@ function App() {
     setExperiences(experiences.filter((experience) => experience.id !== id));
   }
 
+  const editGeneral = () => {
+    setEditingGeneral(true);
+  }
+
+  const saveGeneral = () => {
+    setEditingGeneral(false);
+  }
 
   return (
     <div className="App">
       <Header />
       <form action="">
-        <General nameContent={nameContent} setNameContent={setNameContent} emailContent={emailContent} setEmailContent={setEmailContent} phoneContent={phoneContent} setPhoneContent={setPhoneContent}/>
+        <GeneralForm editGeneral={editGeneral} saveGeneral={saveGeneral} editingGeneral={editingGeneral} nameContent={nameContent} setNameContent={setNameContent} emailContent={emailContent} setEmailContent={setEmailContent} phoneContent={phoneContent} setPhoneContent={setPhoneContent}/>
+        {!editingGeneral && <General editGeneral={editGeneral} nameContent={nameContent} emailContent={emailContent} phoneContent={phoneContent} />}
         <EducationForm saveEducation={saveEducation} editingEducation={editingEducation} schoolName={schoolName} setSchoolName={setSchoolName} major={major} setMajor={setMajor} studyDate={studyDate} setStudyDate={setStudyDate} addEducation={addEducation} />
         {educations.map((education) => {
           return <Education key={education.id} id={education.id} schoolName={education.schoolName} major={education.major} studyDate={education.studyDate} removeEducation={removeEducation} editEducation={editEducation}/>
