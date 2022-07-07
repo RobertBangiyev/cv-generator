@@ -7,7 +7,7 @@ class Preview extends Component {
         const { nameContent, emailContent, phoneContent, educations, experiences } = this.props;
 
         return (
-            <div>
+            <div className='preview'>
                 <h2>{nameContent}</h2>
                 <p>{emailContent}</p>
                 <p>{phoneContent}</p>

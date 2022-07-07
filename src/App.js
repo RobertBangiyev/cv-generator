@@ -110,6 +110,7 @@ function App() {
         {preview && <button onClick={() => setPreview(false)} type='button'>Hide preview</button>}
       </form>
       {preview && <Preview nameContent={nameContent} emailContent={emailContent} phoneContent={phoneContent} educations={educations} experiences={experiences} />}
+      {preview && <button onClick={() => window.print()} type='button'>Save pdf</button>}
       <Footer />
     </div>
   );

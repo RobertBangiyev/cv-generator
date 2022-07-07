@@ -16,3 +16,13 @@
 img {
   width: 20px;
 }
+
+@media print {
+  form, .footer, .header, button {
+      display: none;
+   }
+  
+   .preview {
+      display: block;
+   }
+}
