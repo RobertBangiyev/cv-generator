@@ -8,7 +8,7 @@ class EducationForm extends Component {
         const { schoolName, setSchoolName, major, setMajor, studyDate, setStudyDate, addEducation, saveEducation, editingEducation } = this.props;
 
         return (
-            <div>
+            <div className="education-form">
                 <h2>Education</h2>
                 {editingEducation && <Info name="School Name" content={schoolName} changeHandler={setSchoolName}/>}
                 {editingEducation && <Info name="Field of Study" content={major} changeHandler={setMajor}/>}

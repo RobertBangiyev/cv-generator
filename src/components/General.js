@@ -5,7 +5,7 @@ class General extends Component {
         const { editGeneral, nameContent, emailContent, phoneContent } = this.props;
 
         return (
-            <div>
+            <div className="general">
                 <p>{nameContent}</p>
                 <p>{emailContent}</p>
                 <p>{phoneContent}</p>

@@ -4,7 +4,7 @@ class Experience extends Component {
     render() {
         const { id, companyName, posTitle, description, startDate, endDate, editExperience, removeExperience, preview } = this.props;
         return (
-            <div>
+            <div className="experience">
                 <p>{companyName}</p>
                 <p>{posTitle}</p>
                 <p>{description}</p>

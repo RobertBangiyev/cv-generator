@@ -7,7 +7,7 @@ class ExperienceForm extends Component {
         const { companyName, setCompanyName, posTitle, setPosTitle, description, setDescription, startDate, setStartDate, endDate, setEndDate, editingExperience, saveExperience, addExperience } = this.props;
 
         return (
-            <div>
+            <div className="experience-form">
                 <h2>Experience</h2>
                 {editingExperience && <Info name='Company Name' content={companyName} changeHandler={setCompanyName}/>}
                 {editingExperience && <Info name='Position Title' content={posTitle} changeHandler={setPosTitle}/>}
