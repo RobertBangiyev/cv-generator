@@ -106,11 +106,11 @@ function App() {
         {experiences.map((experience) => {
           return <Experience preview='false' key={experience.id} id={experience.id} companyName={experience.companyName} posTitle={experience.posTitle} description={experience.description} startDate={experience.startDate} endDate={experience.endDate} removeExperience={removeExperience} editExperience={editExperience}/>
         })}
-        {!preview && <button onClick={() => setPreview(true)} type='button'>Show preview</button>}
-        {preview && <button onClick={() => setPreview(false)} type='button'>Hide preview</button>}
+        {!preview && <button className='special-btn' onClick={() => setPreview(true)} type='button'>Show preview</button>}
+        {preview && <button className='special-btn' onClick={() => setPreview(false)} type='button'>Hide preview</button>}
       </form>
       {preview && <Preview nameContent={nameContent} emailContent={emailContent} phoneContent={phoneContent} educations={educations} experiences={experiences} />}
-      {preview && <button onClick={() => window.print()} type='button'>Save pdf</button>}
+      {preview && <button className='special-btn' onClick={() => window.print()} type='button'>Save pdf</button>}
       <Footer />
     </div>
   );

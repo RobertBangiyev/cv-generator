@@ -17,6 +17,44 @@ img {
   width: 20px;
 }
 
+h2 {
+  margin: 5px 0 5px 0;
+  padding: 0;
+}
+
+.header {
+  text-align: center;
+}
+
+p {
+  margin: 0;
+  padding: 0;
+}
+
+.general-form, .general, .education-form, .education, .experience-form, .experience, .preview, .footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+form input {
+  margin-left: 5px;
+}
+
 @media print {
   form, .footer, .header, button {
       display: none;

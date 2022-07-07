@@ -5,7 +5,7 @@ class Education extends Component {
         const { schoolName, major, studyDate, id, removeEducation, editEducation, preview } = this.props;
 
         return (
-            <div>
+            <div className="education">
                 <p>{schoolName}</p>
                 <p>{major}</p>
                 <p>{studyDate}</p>
