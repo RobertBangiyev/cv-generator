@@ -8,7 +8,6 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
 .App-link {
   color: #61dafb;
 }
@@ -44,7 +43,17 @@ form {
   align-items: center;
 }
 
+body {
+  margin: 0;
+}
+
 .App {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.content {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -63,4 +72,13 @@ form input {
    .preview {
       display: block;
    }
+}
+
+.footer {
+  position: relative;
+  bottom: 0;
+}
+
+.App {
+  height: 100vh;
 }

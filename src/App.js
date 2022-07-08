@@ -94,23 +94,26 @@ function App() {
 
   return (
     <div className="App">
-      <Header />
-      <form action="">
-        <GeneralForm editGeneral={editGeneral} saveGeneral={saveGeneral} editingGeneral={editingGeneral} nameContent={nameContent} setNameContent={setNameContent} emailContent={emailContent} setEmailContent={setEmailContent} phoneContent={phoneContent} setPhoneContent={setPhoneContent}/>
-        {!editingGeneral && <General editGeneral={editGeneral} nameContent={nameContent} emailContent={emailContent} phoneContent={phoneContent} />}
-        <EducationForm saveEducation={saveEducation} editingEducation={editingEducation} schoolName={schoolName} setSchoolName={setSchoolName} major={major} setMajor={setMajor} studyDate={studyDate} setStudyDate={setStudyDate} addEducation={addEducation} />
-        {educations.map((education) => {
-          return <Education key={education.id} id={education.id} schoolName={education.schoolName} major={education.major} studyDate={education.studyDate} removeEducation={removeEducation} editEducation={editEducation}/>
-        })}
-        <ExperienceForm preview='false' removeExperience={removeExperience} editExperience={editExperience} editingExperience={editingExperience} saveExperience={saveExperience} companyName={companyName} setCompanyName={setCompanyName} posTitle={posTitle} setPosTitle={setPosTitle} description={description} setDescription={setDescription} startDate={startDate} setStartDate={setStartDate} endDate={endDate} setEndDate={setEndDate} addExperience={addExperience} />
-        {experiences.map((experience) => {
-          return <Experience preview='false' key={experience.id} id={experience.id} companyName={experience.companyName} posTitle={experience.posTitle} description={experience.description} startDate={experience.startDate} endDate={experience.endDate} removeExperience={removeExperience} editExperience={editExperience}/>
-        })}
-        {!preview && <button className='special-btn' onClick={() => setPreview(true)} type='button'>Show preview</button>}
-        {preview && <button className='special-btn' onClick={() => setPreview(false)} type='button'>Hide preview</button>}
-      </form>
-      {preview && <Preview nameContent={nameContent} emailContent={emailContent} phoneContent={phoneContent} educations={educations} experiences={experiences} />}
-      {preview && <button className='special-btn' onClick={() => window.print()} type='button'>Save pdf</button>}
+      <div className='content'>
+        <Header />
+              <form action="">
+                <GeneralForm editGeneral={editGeneral} saveGeneral={saveGeneral} editingGeneral={editingGeneral} nameContent={nameContent} setNameContent={setNameContent} emailContent={emailContent} setEmailContent={setEmailContent} phoneContent={phoneContent} setPhoneContent={setPhoneContent}/>
+                {!editingGeneral && <General editGeneral={editGeneral} nameContent={nameContent} emailContent={emailContent} phoneContent={phoneContent} />}
+                <EducationForm saveEducation={saveEducation} editingEducation={editingEducation} schoolName={schoolName} setSchoolName={setSchoolName} major={major} setMajor={setMajor} studyDate={studyDate} setStudyDate={setStudyDate} addEducation={addEducation} />
+                {educations.map((education) => {
+                  return <Education key={education.id} id={education.id} schoolName={education.schoolName} major={education.major} studyDate={education.studyDate} removeEducation={removeEducation} editEducation={editEducation}/>
+                })}
+                <ExperienceForm preview='false' editingExperience={editingExperience} saveExperience={saveExperience} companyName={companyName} setCompanyName={setCompanyName} posTitle={posTitle} setPosTitle={setPosTitle} description={description} setDescription={setDescription} startDate={startDate} setStartDate={setStartDate} endDate={endDate} setEndDate={setEndDate} addExperience={addExperience} />
+                {experiences.map((experience) => {
+                  return <Experience key={experience.id} id={experience.id} companyName={experience.companyName} posTitle={experience.posTitle} description={experience.description} startDate={experience.startDate} endDate={experience.endDate} removeExperience={removeExperience} editExperience={editExperience}/>
+                })}
+                {!preview && <button className='special-btn' onClick={() => setPreview(true)} type='button'>Show preview</button>}
+                {preview && <button className='special-btn' onClick={() => setPreview(false)} type='button'>Hide preview</button>}
+              </form>
+              {preview && <Preview nameContent={nameContent} emailContent={emailContent} phoneContent={phoneContent} educations={educations} experiences={experiences} />}
+              {preview && <button className='special-btn' onClick={() => window.print()} type='button'>Save pdf</button>}
+      </div>
+      
       <Footer />
     </div>
   );
